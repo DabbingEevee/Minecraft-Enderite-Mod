@@ -1,61 +1,60 @@
 package net.enderitemc.enderitemod.materials;
 
+import net.enderitemc.enderitemod.init.Registration;
+import net.minecraft.world.item.Tier;
+import net.minecraft.world.item.crafting.Ingredient;
+
 import java.util.function.Supplier;
 
-import net.enderitemc.enderitemod.*;
+public enum EnderiteMaterial implements Tier {
 
-import net.minecraft.item.ToolMaterial;
-import net.minecraft.recipe.Ingredient;
-import net.minecraft.util.Lazy;
-
-public enum EnderiteMaterial implements ToolMaterial {
-
-    ENDERITE(4, 4096, 15.0F, 2.0F, 17, () -> Ingredient.ofItems(EnderiteMod.ENDERITE_INGOT));
+    ENDERITE(4, 4096, 15.0F, 2.0F, 17, () -> Ingredient.of(Registration.ENDERITE_INGOT.get()));
 
     private final int miningLevel;
     private final int itemDurability;
     private final float miningSpeed;
     private final float attackDamage;
     private final int enchantability;
-    private final Lazy<Ingredient> repairIngredient;
+    private final Ingredient repairIngredient;
 
     EnderiteMaterial(int miningLevel, int itemDurability, float miningSpeed, float attackDamage, int enchantability,
-            Supplier<Ingredient> repairIngredient) {
+                     Supplier<Ingredient> repairIngredient) {
         this.miningLevel = miningLevel;
         this.itemDurability = itemDurability;
         this.miningSpeed = miningSpeed;
         this.attackDamage = attackDamage;
         this.enchantability = enchantability;
-        this.repairIngredient = new Lazy<>(repairIngredient);
+        this.repairIngredient = repairIngredient.get();
     }
 
     @Override
-    public int getDurability() {
+    public int getUses() {
         return this.itemDurability;
     }
 
     @Override
-    public float getMiningSpeedMultiplier() {
+    public float getSpeed() {
         return this.miningSpeed;
     }
 
     @Override
-    public float getAttackDamage() {
+    public float getAttackDamageBonus() {
         return this.attackDamage;
     }
 
     @Override
-    public int getMiningLevel() {
+    public int getLevel() {
         return this.miningLevel;
     }
 
     @Override
-    public int getEnchantability() {
+    public int getEnchantmentValue() {
         return this.enchantability;
     }
 
     @Override
     public Ingredient getRepairIngredient() {
-        return this.repairIngredient.get();
+        return this.repairIngredient;
     }
+
 }

@@ -1,12 +1,19 @@
 package net.enderitemc.enderitemod.misc;
 
-import net.minecraft.item.Item;
-import net.minecraft.tag.TagKey;
-import net.minecraft.util.Identifier;
-import net.minecraft.util.registry.Registry;
+import net.minecraft.world.item.Item;
+import net.minecraft.tags.Tag;
+import net.minecraft.tags.TagKey;
+import net.minecraft.tags.ItemTags;
+import net.minecraft.data.tags.ItemTagsProvider;
+import net.minecraft.resources.ResourceLocation;
 
 public class EnderiteTag {
-    public static final TagKey<Item> ENDERITE_ITEM = TagKey.of(Registry.ITEM_KEY, new Identifier("enderitemod", "enderite_items"));
-    public static final TagKey<Item> CRAFTABLE_SHULKER_BOXES = TagKey.of(Registry.ITEM_KEY, new Identifier("enderitemod", "shulker_boxes"));
-    public static final TagKey<Item> ENDERITE_ELYTRA = TagKey.of(Registry.ITEM_KEY, new Identifier("enderitemod", "enderite_elytras"));
+        public static final TagKey<Item> ENDERITE_ITEM = ItemTags
+        		.create(new ResourceLocation("enderitemod", "enderite_items"));
+
+        public static final TagKey<Item> CRAFTABLE_SHULKER_BOXES = ItemTags
+        		.create(new ResourceLocation("enderitemod", "enderite_items"));
+
+        public static final TagKey<Item> ENDERITE_ELYTRAS = ItemTags
+        		.create(new ResourceLocation("enderitemod", "enderite_items"));
 }

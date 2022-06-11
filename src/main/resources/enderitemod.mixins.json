@@ -3,29 +3,16 @@
   "minVersion": "0.8",
   "package": "net.enderitemc.enderitemod.mixin",
   "compatibilityLevel": "JAVA_17",
+  "refmap": "enderitemod.refmap.json",
   "mixins": [
-    "EnderiteDropMixin",
-    "EnderiteDropDamageMixin",
-    "EndermanStopStaringMixin",
     "SmithingEnderiteSwordMixin",
-    "SmithingEnderiteSwordOutputMixin",
-    "SmithingEnderiteSwordTakeMixin",
     "EnderiteRespawnAnchorMixin",
-    "EnderiteShieldPlayerEntityMixin",
-    "MobEntityMixin",
-    "EnderiteShearsSheepMixin",
-    "ShulkerBoxColoringMixin"
+    "EnderiteDropVoidMixin",
+    "ShulkerBoxColoringMixin",
+    "EndermanMixin",
+    "EnderiteCrossbowMixin"
   ],
-  "client": [
-    "EnderiteDropMixin",
-    "EnderiteDropDamageMixin",
-    "EndermanStopStaringMixin",
-    "SmithingEnderiteSwordMixin",
-    "SmithingEnderiteSwordOutputMixin",
-    "SmithingEnderiteSwordTakeMixin",
-    "EnderiteRespawnAnchorMixin",
-    "EnderiteCrossbowPlayerRendererMixin"
-  ],
+  "client": [],
   "injectors": {
     "defaultRequire": 1
   }
